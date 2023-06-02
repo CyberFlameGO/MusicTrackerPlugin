@@ -1,0 +1,4 @@
+name: SpotifyPlugin
+version: '${project.version}'
+main: org.commandomc.spotifyplugin.SpotifyPlugin
+api-version: 1.19
