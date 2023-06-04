@@ -10,11 +10,28 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class SpotifyPlugin extends JavaPlugin {
+import org.bukkit.scoreboard.*;
+
+import java.util.UUID;
+
+public final class SpotifyPlugin extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        this.getCommand("auth").setExecutor(new SpotifyAuth(this));
+        this.getCommand("spotifySync").setExecutor(new SpotifyManualSync(this));
+
+        getServer().getPluginManager().registerEvents(this, this);
+        int delay = 0;
+        int period = 20 * 60; // 20 ticks per second * 60 seconds = 1 minute
+
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+            @Override
+            public void run() {
+                // Execute the spotifySync command here
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "spotifySync");
+            }
+        }, delay, period);
 
     }
 
