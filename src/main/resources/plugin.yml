@@ -1,4 +1,5 @@
 name: music-tracker
+authors: [MiataBoy, Zortos]
 version: '${project.version}'
 main: org.commandomc.MusicTracker.SpotifyPlugin
 api-version: 1.19
@@ -10,3 +11,5 @@ commands:
   spotifySync:
     description: Refresh everyone's spotify song
     usage: /spotifySync
+    permission: musictracker.sync
+    permission-message: Only people with musictracker.sync can use this command.
