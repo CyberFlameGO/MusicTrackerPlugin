@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SpotifyMCPlugin.iml" filepath="$PROJECT_DIR$/.idea/SpotifyMCPlugin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SpotifyPlugin/SpotifyPlugin.iml" filepath="$PROJECT_DIR$/SpotifyPlugin/SpotifyPlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Musictracker.iml" filepath="$PROJECT_DIR$/Musictracker.iml" />
     </modules>
   </component>
 </project>

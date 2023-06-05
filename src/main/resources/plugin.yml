@@ -1,6 +1,6 @@
 name: music-tracker
 version: '${project.version}'
-main: org.commandomc.spotifyplugin.SpotifyPlugin
+main: org.commandomc.MusicTracker.SpotifyPlugin
 api-version: 1.19
 
 commands:
