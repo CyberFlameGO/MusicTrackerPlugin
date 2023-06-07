@@ -8,6 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 
 public class SpotifyTools {
@@ -15,8 +16,8 @@ public class SpotifyTools {
 
 
 
-    public static CompletableFuture<String> getNowPlayingAsync(String uuid) {
-        return CompletableFuture.supplyAsync(() -> {
+    public static String getNowPlayingAsync(String uuid) {
+
             String urlString = "https://mcapi.zortos.me/Spotify/Songplaying/" + uuid;
             StringBuilder response = new StringBuilder();
 
@@ -35,6 +36,7 @@ public class SpotifyTools {
                     reader.close();
                 } else {
                     // Handle error response
+
                     return "";
                 }
             } catch (IOException e) {
@@ -42,8 +44,9 @@ public class SpotifyTools {
             }
 
             return response.toString();
-        }, CompletableFuture.delayedExecutor(0, TimeUnit.MILLISECONDS));
+
     }
+
 
     public static CompletableFuture<Boolean> isUserAuthenticatedAsync(String uuid) {
         return CompletableFuture.supplyAsync(() -> {
@@ -66,21 +69,24 @@ public class SpotifyTools {
 
     // Gets nowplaying and returns the songname
     public static CompletableFuture<String> getSongPlayingAsync(String uuid) {
-        return getNowPlayingAsync(uuid)
-                .thenApply(response -> {
-                    JSONParser parser = new JSONParser();
-                    try {
-                        Object obj = parser.parse(response);
-                        JSONObject json = (JSONObject) obj;
-                        JSONObject item = (JSONObject) json.get("item");
-                        String songName = (String) item.get("name");
-                        return songName;
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                        return "";
-                    }
-                });
+        CompletableFuture<String> future = new CompletableFuture<>();
+        String response = SpotifyTools.getNowPlayingAsync(uuid);
+
+        try {
+            JSONParser parser = new JSONParser();
+            Object obj = parser.parse(response);
+            JSONObject json = (JSONObject) obj;
+            JSONObject item = (JSONObject) json.get("item");
+            String songName = (String) item.get("name");
+            future.complete(songName);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            future.complete("");
+        }
+
+        return future;
     }
+
 
     public static CompletableFuture<Boolean> isUserInDatabaseAsync(String uuid) {
         return CompletableFuture.supplyAsync(() -> {

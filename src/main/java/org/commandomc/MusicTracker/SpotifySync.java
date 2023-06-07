@@ -12,12 +12,12 @@ import java.util.HashMap;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
-public class SpotifyManualSync implements CommandExecutor {
+public class SpotifySync implements CommandExecutor {
     public HashMap<String, Long> cooldowns = new HashMap<>();
 
-    SpotifyPlugin plugin;
+    MusicTracker plugin;
 
-    public SpotifyManualSync(SpotifyPlugin plugin) {
+    public SpotifySync(MusicTracker plugin) {
         this.plugin = plugin;
     }
 
@@ -75,7 +75,7 @@ public class SpotifyManualSync implements CommandExecutor {
                                 player.setDisplayName(newName); // Remove the chat prefix from the display name
                                 player.setPlayerListName(newName); // Update the player's name in the player list as well
                             }
-                            sender.sendMessage(ChatColor.RED+"User : " +  player.getName() + "Auth Expired");
+                            sender.sendMessage(ChatColor.RED+"User : " +  player.getName() + " Auth Expired");
                         }
                     });
                 }

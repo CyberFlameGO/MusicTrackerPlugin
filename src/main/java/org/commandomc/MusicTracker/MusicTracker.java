@@ -14,12 +14,14 @@ import org.bukkit.scoreboard.*;
 
 import java.util.UUID;
 
-public final class SpotifyPlugin extends JavaPlugin implements Listener {
+public final class MusicTracker extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        this.getCommand("auth").setExecutor(new SpotifyAuth(this));
-        this.getCommand("spotifySync").setExecutor(new SpotifyManualSync(this));
+        this.getCommand("auth").setExecutor(new MusicTrackerAuth(this));
+        this.getCommand("auth").setTabCompleter(new MusicTrackerTabCompleter());
+        this.getCommand("spotifySync").setExecutor(new SpotifySync(this));
+        this.getCommand("musicinfo").setExecutor(new Musicinfo(this));
 
         getServer().getPluginManager().registerEvents(this, this);
         int delay = 0;

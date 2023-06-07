@@ -1,15 +1,18 @@
 name: music-tracker
 authors: [MiataBoy, Zortos]
 version: '${project.version}'
-main: org.commandomc.MusicTracker.SpotifyPlugin
+main: org.commandomc.MusicTracker.MusicTracker
 api-version: 1.19
 
 commands:
   auth:
     description: authenticate with spotify to display your status
-    usage: /auth
+    usage: /auth spotify,soundcloud,apple-music
   spotifySync:
     description: Refresh everyone's spotify song
     usage: /spotifySync
     permission: musictracker.sync
     permission-message: Only people with musictracker.sync can use this command.
+  musicinfo:
+    description: check what another player is listening to
+    usage: /musicinfo Player
