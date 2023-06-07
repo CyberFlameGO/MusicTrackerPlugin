@@ -9,10 +9,13 @@
 | Streaming Service  | Now Playing API | Minecraft Plugin |
 | ------------- | ------------- | ------------- |
 | Spotify       | :white_check_mark:  | :white_check_mark:
-| Deezer        | :x: [^1]  | :x: [^1] |
-| Apple Music   | :x: [^1] | :x: [^1] |
-| SoundCloud    | :x: [^1] | :x: [^1] |
+| last.fm    | ⚠️ [^1] | ⚠️ [^1] |
+| Deezer        | :x: [^2]  | :x: [^2] |
+| Apple Music   | :x: [^2] | :x: [^2] |
+| SoundCloud    | :x: [^2] | :x: [^2] |
+| Youtube Music    | :x: [^2] | :x: [^2] |
 [^1]: Streaming Services will be later available 
+[^2]: No NowPlaying API so wont be available
 
 ## Features
 - Track songs of your friends on the scorebord
