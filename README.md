@@ -26,7 +26,7 @@
 - /musicinfo (Player) < see in detail what the user is lisening to 
 - /spotifysync < Sync manualy (ONLY FOR USERS WITH musictracker.sync PERMISSION or op)
 ## How to use
-1. Add your plugin to your server
+1. Add the plugin to your server
 2. authenticate using /auth spotify < (Waiting for public api request spotify)
 3. Enjoy
 ## TODO
