@@ -16,12 +16,15 @@
 
 ## Features
 - Track songs of your friends on the scorebord
+- Refreshes everyone's songs every 30 sec
 
-
+## Commands
+- /auth (spotify) < authenticate with spotify
+- /musicinfo (Player) < see in detail what the user is lisening to 
+- /spotifysync < Sync manualy (ONLY FOR USERS WITH musictracker.sync PERMISSION or op)
 
 ## TODO
-:white_check_mark: Spotify Auth API <br/>
-:white_check_mark: Auto update song info
+[TODO List](https://github.com/orgs/commandoMC/projects/1?query=is%3Aopen+sort%3Aupdated-desc)
 
 
 ## Contribute
