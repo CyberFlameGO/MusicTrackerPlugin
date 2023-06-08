@@ -74,7 +74,7 @@ public class Musicinfo implements CommandExecutor {
 
                     } catch (ParseException e) {
                         e.printStackTrace();
-                        sender.sendMessage("ERR");
+                        sender.sendMessage(ChatColor.RED + "User is not listening to anything");
                     }
                 }
             }.runTaskAsynchronously(plugin);

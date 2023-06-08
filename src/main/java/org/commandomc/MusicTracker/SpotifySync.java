@@ -65,9 +65,9 @@ public class SpotifySync implements CommandExecutor {
                                 player.setDisplayName(newName); // Set the new display name with the chat prefix
                                 player.setPlayerListName(newName); // Update the player's name in the player list as well
                             }
-                            sender.sendMessage(ChatColor.GREEN + "Synced User: " + player.getName());
 
-                            Bukkit.getLogger().info(ChatColor.YELLOW + "Synced User: " + player.getName());
+
+
                         } else {
                             String currentPrefix = player.getDisplayName().split(" ")[0]; // Get the current prefix from the display name
                             if (!currentPrefix.isEmpty()) {

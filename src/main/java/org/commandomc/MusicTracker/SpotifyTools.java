@@ -78,6 +78,9 @@ public class SpotifyTools {
             JSONObject json = (JSONObject) obj;
             JSONObject item = (JSONObject) json.get("item");
             String songName = (String) item.get("name");
+            if (songName.contains("(") & songName.contains(")")){
+                songName = songName.split("\\(")[0] + "...";
+            }
             future.complete(songName);
         } catch (ParseException e) {
             e.printStackTrace();
